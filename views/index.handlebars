@@ -1,0 +1,31 @@
+<h1>Eat Da Burger!</h1>
+
+<div id="ready">Prepared:
+    <ul>
+        {{#each burgers}}
+            {{#if devoured}}
+                {{> burgers/burger-block devoured=false}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
+
+<div id="devoured">Devoured:
+    <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                {{> burgers/burger-block devoured=true}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+
+<form>
+    <div class="form-group">
+        <label for="new-burger">Enter Burger:</label>
+        <textarea name="new-burger" id="" cols="30" rows="2"></textarea>
+    </div>
+        
+    <button type="submit">Prepare Burger</button>
+
+</form>
