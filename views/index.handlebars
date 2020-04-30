@@ -3,9 +3,9 @@
 <div id="ready">Prepared:
     <ul>
         {{#each burgers}}
-            {{#if devoured}}
+            {{#unless devoured}}
                 {{> burgers/burger-block devoured=false}}
-            {{/if}}
+            {{/unless}}
         {{/each}}
     </ul>
 </div>
@@ -13,9 +13,9 @@
 <div id="devoured">Devoured:
     <ul>
         {{#each burgers}}
-            {{#unless devoured}}
+            {{#if devoured}}
                 {{> burgers/burger-block devoured=true}}
-            {{/unless}}
+            {{/if}}
         {{/each}}
     </ul>
 </div>
