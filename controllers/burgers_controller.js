@@ -7,9 +7,19 @@ router.get("/", function(req, res) {
         const hbsObj = {
             burgers: data
         };
-        console.log(hbsObj);
+        // console.log(hbsObj);
         res.render('index', hbsObj);
     })
+});
+
+router.post("/api/burgers", function(req, res) {
+
+    // console.log(req.body);
+
+    burger.create(req.body, function(data) {
+        // console.log(hbsObj);
+        res.json({ id: data.insertId });
+    });
 });
 
 module.exports = router;

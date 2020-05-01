@@ -8,8 +8,11 @@ const orm = {
         });
     },
 
-    insertOne: function (cb) {
-
+    insertOne: function (tableName, vals, cb) {
+        connection.query('INSERT INTO ?? SET ?', [tableName, vals], function(err, data){
+            if (err) throw err;
+            cb(data);
+        });
     },
 
     updateOne: function(cb) {
