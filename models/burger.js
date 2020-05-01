@@ -13,8 +13,10 @@ const burger = {
         });
     },
 
-    update: function() {
-        
+    update: function(vals, condition, cb) {
+        orm.updateOne("burgers", vals, condition, function(res) {
+            cb(res);
+        });
     }
 }
 

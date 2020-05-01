@@ -15,8 +15,15 @@ const orm = {
         });
     },
 
-    updateOne: function(cb) {
-
+    updateOne: function(tableName, vals, condition, cb) {
+        console.log(vals);
+        if(vals.devoured === "true"){
+            vals.devoured = true;
+        }
+        connection.query('UPDATE ?? SET ? WHERE id = ?', [tableName, vals, condition], function(err, data){
+            if (err) throw err;
+            cb(data);
+        });
     }
 }
 
