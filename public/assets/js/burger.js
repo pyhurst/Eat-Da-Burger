@@ -5,12 +5,10 @@ $(function() {
         const newBurger = {
             burger_name: $("#new-burger").val().trim()
         };
-        // console.log(newBurger)
         $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
         }).then(function() {
-            // console.log("Prepared Burger");
             location.reload();
         });
     });
@@ -28,7 +26,6 @@ $(function() {
             type: "PUT",
             data: newDevourState
         }).then(function() {
-            // console.log("Prepared Burger");
             location.reload();
         });
     });

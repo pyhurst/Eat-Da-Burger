@@ -1,32 +1,44 @@
-<h1>Eat Da Burger!</h1>
-
-<div id="ready">Prepared:
-    <ul>
-        {{#each burgers}}
-            {{#unless devoured}}
-                {{> burgers/burger-block devour=true}}
-            {{/unless}}
-        {{/each}}
-    </ul>
-</div>
-
-<div id="devoured">Devoured:
-    <ul>
-        {{#each burgers}}
-            {{#if devoured}}
-                {{> burgers/burger-block devour=false}}
-            {{/if}}
-        {{/each}}
-    </ul>
-</div>
-
-<form class="create-form">
-    <div class="form-group">
-        <label for="new-burger">Enter Burger:</label>
-        <textarea name="new-burger" id="new-burger" cols="30" rows="2"></textarea>
-        {{!-- <input type="text" id="new-burger" name="new-burger"> --}}
+<div class="row">
+    <div class="col">
+        <h1>Eat Da Burger!</h1>
     </div>
-        
-    <button type="submit">Prepare Burger</button>
+</div>
 
-</form>
+<div class="row">
+    <div class="col">
+        <div id="ready" class="burger-box">Prepared:
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devour=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="col">
+        <div id="devoured" class="burger-box">Devoured:
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/burger-block devour=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form class="create-form">
+            <div class="form-group">
+                <label for="new-burger" id="burger-label">Enter Burger:</label>
+                <textarea name="new-burger" id="new-burger" cols="40" rows="2"></textarea>
+                <button type="submit" id="prepare-burger" class="btn btn-warning">Prepare Burger</button>
+                <button type="submit" id="clear-burger" class="btn btn-warning">Clear Devoured</button>
+            </div>
+        </form>
+    </div>
+</div>

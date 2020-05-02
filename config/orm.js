@@ -24,6 +24,13 @@ const orm = {
             if (err) throw err;
             cb(data);
         });
+    },
+
+    clearDevoured: function(cb) {
+        connection.query('', function(err, data){
+            if (err) throw err;
+            cb(data);
+        });
     }
 }
 

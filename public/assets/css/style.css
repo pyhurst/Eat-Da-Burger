@@ -1,3 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     background-color: orange;
+}
+
+.burger-box{
+    /* border: 2px solid black; */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    background-color: rgb(245, 185, 73);
+}
+
+h1{
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+ul{
+    font-size: 18px;
+    text-align: start;
+}
+
+.btn{
+    position: relative;
+    bottom: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#new-burger{
+    padding-bottom: 10px;
+}
+
+#burger-label{
+    position: relative;
+    bottom: 25px;
+    font-weight: bold;
+}
+
+#description{
+    font-size: 18px;
+    margin-top: -20px;
 }
