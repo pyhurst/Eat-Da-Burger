@@ -17,6 +17,18 @@ const burger = {
         orm.updateOne("burgers", vals, condition, function(res) {
             cb(res);
         });
+    },
+
+    selectDevoured: function(cb) {
+        orm.selectDevoured("burgers", function(res) {
+            cb(res);
+        });
+    },
+
+    deleteDevoured: function (ids, cb) {
+        orm.clearDevoured("burgers", ids, function(res) {
+            cb(res);
+        });
     }
 }
 

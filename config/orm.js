@@ -16,7 +16,6 @@ const orm = {
     },
 
     updateOne: function(tableName, vals, condition, cb) {
-        console.log(vals);
         if(vals.devoured === "true"){
             vals.devoured = true;
         }
@@ -26,8 +25,15 @@ const orm = {
         });
     },
 
-    clearDevoured: function(cb) {
-        connection.query('', function(err, data){
+    selectDevoured: function(tableName, cb) {
+        connection.query('SELECT * FROM ?? WHERE devoured = true;', [tableName], function(err, data){
+            if (err) throw err;
+            cb(data);
+        });
+    },
+
+    clearDevoured: function(tableName, ids, cb) {
+        connection.query('DELETE FROM ?? WHERE id IN (?)', [tableName, ids], function(err, data){
             if (err) throw err;
             cb(data);
         });

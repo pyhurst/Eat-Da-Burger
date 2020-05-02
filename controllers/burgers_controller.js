@@ -11,6 +11,12 @@ router.get("/", function(req, res) {
     })
 });
 
+router.get("/api/burgers", function(req, res) {
+  burger.selectDevoured(function(data) {
+      res.json(data);
+  })
+});
+
 router.post("/api/burgers", function(req, res) {
     burger.create(req.body, function(data) {
         res.json({ id: data.insertId });
@@ -26,6 +32,12 @@ router.put("/api/burgers/:id", function(req, res) {
         res.status(200).end();
       }
     });
+});
+
+router.delete("/api/burgers", function(req, res) {
+  burger.deleteDevoured(req.body.ids, function(data) {
+      res.json({ id: data.insertId });
+  });
 });
 
 module.exports = router;
